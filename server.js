@@ -8,14 +8,15 @@ const app = express ();
 const db = mongoose.connection;
 require('dotenv').config();
 
-
-//Port
-//___________________
+// ===================
+// PORT
+// ===================
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3003;
-//___________________
-//Database
-//___________________
+
+// ===================
+// DATABASE
+// ===================
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI
 
@@ -46,7 +47,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World!!!!');
+  res.send('Hello World');
 });
 
 //___________________
