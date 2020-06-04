@@ -20,15 +20,18 @@ const PORT = process.env.PORT || 3003;
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI
 
+mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
-//___________________
-//Middleware
-//___________________
+
+// ===================
+// MIDDLEWARE
+// ===================
 
 //use public folder for static assets
 app.use(express.static('public'));
@@ -42,12 +45,18 @@ app.use(express.json());
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
-//___________________
-// Routes
-//___________________
+
+
+// ===================
+// CONTROLLERS
+// ===================
+
+const foodController = require('./controllers/food.js')
+app.use('/foods', foodController)
+
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World');
+  res.redirect('/foods');
 });
 
 //___________________
