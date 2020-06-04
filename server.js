@@ -55,9 +55,9 @@ const foodController = require('./controllers/food.js')
 app.use('/foods', foodController)
 
 //localhost:3000
-// app.get('/' , (req, res) => {
-//   res.redirect('/foods');
-// });
+app.get('/' , (req, res) => {
+  res.redirect('/foods');
+});
 
 
 //___________________
