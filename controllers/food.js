@@ -36,6 +36,20 @@ food.get('/seed', (req,res) => {
   )
 })
 
+// ======================
+// ======================
+
+// =====
+// Delete
+// =====
+
+food.delete('/:id', (req,res) => {
+  Food.findByIdAndRemove(
+    req.params.id, (err,data) => {
+      res.redirect('/foods')
+    })
+})
+
 // =====
 // show.ejs
 // =====

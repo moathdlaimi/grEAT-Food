@@ -12,15 +12,19 @@
           <div class="food-recipes">
               <div class="recipe-info">
 
-                      <img src="<%= food.img %>" alt=""> <br>
-                      <%= food.name %> <br>
-                      <%= food.ingredients %> <br> <br>
-                      <%= food.cuisine %> <br>
-                      <%= food.instructions %> <br>
-                      <%= food.notes %> <br>
-                      <%= food.diet %> <br>
-
+                <img src="<%= food.img %>" alt=""> <br>
+                <%= food.name %> <br>
+                <%= food.ingredients %> <br> <br>
+                <%= food.cuisine %> <br>
+                <%= food.instructions %> <br>
+                <%= food.notes %> <br>
+                <%= food.diet %> <br>
               </div>
+
+              <%- include ('../partials/edit.ejs') %>
+
+
+
           </div>
   </body>
 </html>

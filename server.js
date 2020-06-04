@@ -56,7 +56,7 @@ app.use('/foods', foodController)
 
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.redirect('/foods');
+  res.render('main.ejs');
 });
 
 
