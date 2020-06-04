@@ -1,7 +1,8 @@
 $(()=>{
 
-let url = window.location.href;
-console.log(url);
+var url = window.location.href;
+
+
 
 
 

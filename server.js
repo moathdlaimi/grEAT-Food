@@ -4,6 +4,7 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const session = require('express-session');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config();
@@ -44,7 +45,13 @@ app.use(express.json());
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
-
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 
 // ===================
@@ -53,6 +60,12 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 const foodController = require('./controllers/food.js')
 app.use('/foods', foodController)
+
+const userController = require('./controllers/user.js')
+app.use('/users', userController)
+
+const sessionController = require('./controllers/session.js')
+app.use('/sessions', sessionController)
 
 //localhost:3000
 app.get('/' , (req, res) => {
