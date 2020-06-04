@@ -40,6 +40,32 @@ food.get('/seed', (req,res) => {
 // ======================
 
 // =====
+// new.ejs
+// =====
+
+food.get('/new', (req,res) => {
+  res.render('foods/new.ejs')
+})
+
+
+
+// =====
+// Edit.ejs
+// =====
+
+food.get('/:id/edit', (req,res) => {
+  Food.findById(req.params.id, (err,data) => {
+    res.render('foods/edit.ejs',
+    {
+      food:data,
+      // ,currentUser: req.session.currentUser
+    }
+  )
+  })
+})
+
+
+// =====
 // Delete
 // =====
 
