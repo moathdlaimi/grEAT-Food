@@ -15,6 +15,22 @@ user.get('/new', (req,res) => {
 })
 
 
+user.get('/:id', (req,res) => {
+  User.findById(req.session.currentUser, (err,data) => {
+    res.render(
+      'users/profile.ejs',
+      {
+        user:data,
+        currentUser: req.session.currentUser
+
+      }
+
+    )
+  })
+})
+
+
+
 user.post('/', (req,res) => {
   req.body.password = bcrypt.hashSync(req.body.password,
   bcrypt.genSaltSync(10))
@@ -23,7 +39,8 @@ user.post('/', (req,res) => {
     if (err) {
       console.log(err);
     }else {
-      res.redirect('/foods')
+      console.log('user created');
+      res.redirect('sessions/new')
     }
   })
 })

@@ -9,6 +9,13 @@ const Food = require('../models/food.js')
 // ===================
 // MIDDLEWARES
 // ===================
+const isAuthinticated = (req,res,next) => {
+  if (req.session.currentUser) {
+    return next()
+  }else {
+    res.send('you need to sign in ')
+  }
+}
 
 // ===================
 // ROUTES
@@ -44,7 +51,7 @@ food.get('/seed', (req,res) => {
 // =====
 
 food.get('/new', (req,res) => {
-  res.render('foods/new.ejs')
+  res.render('foods/new.ejs', {currentUser: req.session.currentUser})
 })
 
 
@@ -53,12 +60,12 @@ food.get('/new', (req,res) => {
 // Edit.ejs
 // =====
 
-food.get('/:id/edit', (req,res) => {
+food.get('/:id/edit', isAuthinticated, (req,res) => {
   Food.findById(req.params.id, (err,data) => {
     res.render('foods/edit.ejs',
     {
       food:data,
-      // ,currentUser: req.session.currentUser
+      currentUser: req.session.currentUser
     }
   )
   })
@@ -69,7 +76,7 @@ food.get('/:id/edit', (req,res) => {
 // Delete
 // =====
 
-food.delete('/:id', (req,res) => {
+food.delete('/:id',isAuthinticated, (req,res) => {
   Food.findByIdAndRemove(
     req.params.id, (err,data) => {
       res.redirect('/foods')
@@ -85,8 +92,8 @@ food.get('/:id', (req,res) => {
       res.render(
         'foods/show.ejs',
           {
-            food:data
-            // ,currentUser: req.session.currentUser
+            food:data,
+            currentUser: req.session.currentUser
           }
         )
     })
@@ -106,8 +113,8 @@ food.get('/', (req,res) => {
     res.render(
       'foods/index.ejs',
       {
-        food:data
-        // ,currentUser: req.session.currentUser
+        food:data,
+        currentUser: req.session.currentUser
       }
     )
   })

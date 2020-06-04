@@ -1,5 +1,5 @@
 
-
+<% if(1 > 0){ %>
 <div class="user-btns">
       <a href="/foods/<%=food.id%>/edit">
         <button type="button" name="button">EDIT</button>
@@ -9,3 +9,8 @@
         <input type="submit" value="DELETE">
       </form>
 </div>
+
+<% } else { %>
+  <button type="button" name="button">Create Recipe</button>
+
+  <% } %>

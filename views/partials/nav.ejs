@@ -1,8 +1,16 @@
+
+
+
+
 <nav class="banner">
     <a href="/"><h1>grEAT Food</h1></a>
-    <% if(1 > 0){ %>
+    <% if(currentUser){ %>
+      Welcome <%= currentUser.username %>
 
-      <a href="/foods">Main Page</a>
+      <form class="" action="sessions/?_method=DELETE" method="post">
+        <input type="submit" value="Log Out">
+
+      </form>
       <% } else { %>
           <h1>else if </h1>
       <% } %>

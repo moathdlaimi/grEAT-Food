@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+<%- include ('../partials/head.ejs')%>
+  <body>
+
+  <div class="container">
+  <h1>Log In</h1>
+    <form action="/sessions" method="post">
+      <label for="name">User Name</label>
+      <input id="name" type="text" name="username">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password">
+      <br>
+      <input type="submit" value="Log In">
+
+    </form>
+
+</div>
+
+  </body>
+</html>

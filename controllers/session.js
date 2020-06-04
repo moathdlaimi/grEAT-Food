@@ -15,11 +15,16 @@ session.post('/', (req,res) => {
       console.log(err);
       res.send('Database is mad')
     } else if (!foundUser) {
-      res.send('No username found')
+      res.send('<a href="/"> username not found </>')
     } else {
-      if(bcrypt.compareSync(req.body.password, foundUser.password)){
+
+      if (bcrypt.compareSync(req.body.password, foundUser.password)){
         req.session.currentUser = foundUser
-        res.redirect('/')
+        res.render('users/profile.ejs' ,
+      {
+        currentUser: req.session.currentUser
+      })
+
       } else {
         res.send('<a href="/">Wrong Password</a')
       }
