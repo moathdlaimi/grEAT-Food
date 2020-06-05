@@ -6,11 +6,19 @@
   </head>
   <body>
 <%- include ('../partials/nav.ejs') %>
+
     <a href="/foods">Main Page</a> <br>
+    <a href="/users">Users</a> <br>
+
     <h1>Profile</h1> <br>
 
 
-    Welcome
+    <div class="">
+
+      User Name: <%=user.username%>
+      <br>
+      Number of recepies: 13
+    </div>
 
 
   </body>

@@ -14,13 +14,23 @@ user.get('/new', (req,res) => {
   res.render('users/new.ejs', {currentUser: req.session.currentUser})
 })
 
-
 user.get('/:id', (req,res) => {
-  User.findById(req.session.currentUser, (err,data) => {
+    User.findById(req.params.id, (err,foundUser) => {
+        res.render('users/profile.ejs',
+        {
+          user:foundUser,
+          currentUser: req.session.currentUser
+        })
+    })
+})
+
+
+user.get('/', (req,res) => {
+  User.find({}, (err,foundUser) => {
     res.render(
-      'users/profile.ejs',
+      'users/index.ejs',
       {
-        user:data,
+        user:foundUser,
         currentUser: req.session.currentUser
 
       }

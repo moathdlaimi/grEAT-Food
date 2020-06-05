@@ -22,6 +22,7 @@ session.post('/', (req,res) => {
         req.session.currentUser = foundUser
         res.render('users/profile.ejs' ,
       {
+        user:foundUser,
         currentUser: req.session.currentUser
       })
 
