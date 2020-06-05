@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+<%- include ('../partials/head.ejs') %>
   <body>
+    <div class="banner">
+      <a href="/"><h1>grEAT Food</h1></a>
+        <form class="" action="/sessions/?_method=DELETE" method="post">
+          <input type="submit" value="Log Out">
+        </form>
+
+    </div>
     <h1>create new recepie</h1>
+
+    <form class="" action="/foods" method="post">
+      <input type="text" name="name" placeholder="Recepie Name" required>
+      <br>
+      <input type="text" name="img" placeholder="IMG URL" required>
+      <br>
+      <textarea type="text" name="ingredients" required>Ingredients
+      </textarea>
+      <br>
+      <input type="text" name="cuisine" placeholder="cuisine" required>
+      <br>
+      <textarea type="text" name="instructions" required>Instructions
+        </textarea>
+        <br>
+      <input type="text" name="notes" placeholder="notes">
+      <br>
+      <input type="text" name="diet" placeholder="diet" required>
+      <br>
+      <input type="submit" value="Create Recepie">
+
+    </form>
+
+
+
+
   </body>
 </html>

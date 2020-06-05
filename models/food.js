@@ -7,7 +7,7 @@ const foodSchema = new mongoose.Schema(
     ingredients:{type:String, required:true},
     cuisine:{type:String, required:true},
     instructions:{type:String, required:true},
-    notes:{type:String, required:true},
+    notes:String,
     diet:{type:String, required:true}
   }
 );

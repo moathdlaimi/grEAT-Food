@@ -100,7 +100,31 @@ food.get('/:id', (req,res) => {
 
 })
 
+// =====
+// Update
+// =====
 
+food.put('/:id',isAuthinticated, (req,res) => {
+  Food.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new:true},
+    (err,updatedModel) => {
+      res.redirect('/foods')
+    }
+  )
+})
+
+
+// =====
+// Create
+// =====
+
+food.post('/',isAuthinticated, (req,res) => {
+      Food.create(req.body, (err,recepie) => {
+        res.redirect('/foods')
+      })
+})
 
 
 

@@ -70,7 +70,7 @@ app.use('/sessions', sessionController)
 
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.render('main.ejs');
+  res.render('main.ejs',{ currentUser:req.session.currentUser});
 });
 
 

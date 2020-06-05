@@ -8,25 +8,36 @@
       <h1>MAIN PAGE</h1>
 
       <a href="/foods">index.ejs</a>
+      <% if(currentUser){%>
 
-      <div class="login-container">
-
-        <form class="" action="/sessions" method="post">
-          <input type="text" name="username" placeholder="username">
-          <br>
-          <input type="password" name="password" placeholder="password">
-          <br>
-          <input type="submit" value="Log In">
+        Welcome <%= currentUser.username %>
+        <form class="" action="/sessions/?_method=DELETE" method="post">
+          <input type="submit" value="Log Out">
 
         </form>
 
-            <div class="signup-container">
-              Not a Member Yet? <a href="users/new">
-                <button type="button" name="button">Sign up now!</button>
-              </a>
-            </div>
+      <% } else {%>
 
-      </div>
+        <div class="login-container">
+
+          <form class="" action="/sessions" method="post">
+            <input type="text" name="username" placeholder="username" required>
+            <br>
+            <input type="password" name="password" placeholder="password" required>
+            <br>
+            <input type="submit" value="Log In">
+
+          </form>
+
+              <div class="signup-container">
+                Not a Member Yet? <a href="users/new">
+                  <button type="button" name="button">Sign up now!</button>
+                </a>
+              </div>
+
+        </div>
+
+        <%}%>
     </div>
   </body>
 </html>

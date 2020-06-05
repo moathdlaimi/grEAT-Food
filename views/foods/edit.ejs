@@ -7,5 +7,27 @@
   <body>
     <h1>edit page</h1>
 
+    <form class="" action="/foods/<%=food.id%>?_method=PUT" method="post">
+
+      <input type="text" name="name" value="<%=food.name%>" required>
+      <br>
+      <input type="text" name="img" value="<%=food.img%>" >
+      <br>
+      <textarea type="text" name="ingredients"required><%=food.ingredients%>
+      </textarea>
+      <br>
+      <input type="text" name="cuisine" value="<%=food.cuisine%>" required>
+      <br>
+      <textarea type="text" name="instructions"required><%=food.instructions%>
+        </textarea>
+        <br>
+      <input type="text" name="notes" value="<%=food.notes%>">
+      <br>
+      <input type="text" name="diet" value="<%=food.diet%>" required>
+      <br>
+      <input type="submit" value="Update Recepie">
+
+    </form>
+
   </body>
 </html>
