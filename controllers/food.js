@@ -4,6 +4,7 @@
 const express = require('express');
 const food = express.Router();
 const Food = require('../models/food.js')
+const User = require('../models/user.js')
 
 
 // ===================
@@ -27,13 +28,13 @@ food.get('/seed', (req,res) => {
   Food.create(
     [
       {
-        name:'Manasf',
-        img:'https://burmaspice.com/wp-content/uploads/2018/09/Burma-Spice-Middle-Eastern-Levant-Jordanian-Recipe-Mansaf-web-res.jpg',
-        ingredients:'Rice And Lamb',
-        cuisine: 'MiddleEastren',
-        instructions:'Just like that',
-        notes: 'Eat with your hand',
-        diet:'Halal'
+        name:'Apple',
+        img:'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/111435/210da11ba6d6494f81f01b97f3bbc2c4_large.png&width=256&type=webp&quality=40',
+        ingredients:'core and shell',
+        cuisine: 'Natural',
+        instructions:'Bite it',
+        notes: 'Enjoy it',
+        diet:'Fruit'
 
       }
     ],
@@ -51,7 +52,13 @@ food.get('/seed', (req,res) => {
 // =====
 
 food.get('/new', (req,res) => {
-  res.render('foods/new.ejs', {currentUser: req.session.currentUser})
+  User.find({}, (err,allUsers) => {
+    res.render('foods/new.ejs',
+    {
+      currentUser: req.session.currentUser,
+      user:allUsers
+    })
+  })
 })
 
 
@@ -114,17 +121,34 @@ food.put('/:id',isAuthinticated, (req,res) => {
     }
   )
 })
+// =====
+// Create inside user
+// =====
+
+food.post('/',isAuthinticated, (req,res) => {
+  User.findById(req.body.userId, (err,foundUser) => {
+    Food.create(req.body, (err,recepie) => {
+      foundUser.recepies.push(recepie);
+      foundUser.save((err,data) => {
+        res.redirect('/foods')
+      })
+
+    })
+  })
+})
+
+
 
 
 // =====
 // Create
 // =====
 
-food.post('/',isAuthinticated, (req,res) => {
-      Food.create(req.body, (err,recepie) => {
-        res.redirect('/foods')
-      })
-})
+// food.post('/',isAuthinticated, (req,res) => {
+//       Food.create(req.body, (err,recepie) => {
+//         res.redirect('/foods')
+//       })
+// })
 
 
 

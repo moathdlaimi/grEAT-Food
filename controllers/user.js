@@ -6,9 +6,30 @@ const express = require('express');
 const user = express.Router();
 const User = require('../models/user.js');
 
+
+
+
+// ===================
+// MIDDLEWARES
+// ===================
+const isAuthinticated = (req,res,next) => {
+  if (req.session.currentUser) {
+    return next()
+  }else {
+    res.send('you need to sign in ')
+  }
+}
+
+
 // ===================
 // ROUTES
 // ===================
+user.delete('/:id',isAuthinticated,(req,res) => {
+  User.findByIdAndRemove(req.params.id, () => {
+    res.redirect('/users')
+  })
+})
+
 
 user.get('/new', (req,res) => {
   res.render('users/new.ejs', {currentUser: req.session.currentUser})
