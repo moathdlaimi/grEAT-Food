@@ -96,16 +96,17 @@ food.delete('/:id',isAuthinticated, (req,res) => {
 
 food.get('/:id', (req,res) => {
     Food.findById(req.params.id, (err,data) => {
-      res.render(
-        'foods/show.ejs',
-          {
-            food:data,
-            currentUser: req.session.currentUser
-          }
-        )
-    })
-
-})
+      User.findOne({'recepies._id':req.params.id}, (err,foundUser) =>{
+        res.render(
+          'foods/show.ejs',
+            {
+              food:data,
+              user:foundUser,
+              currentUser: req.session.currentUser
+            })
+          })
+        })
+      })
 
 // =====
 // Update
@@ -127,6 +128,7 @@ food.put('/:id',isAuthinticated, (req,res) => {
 
 food.post('/',isAuthinticated, (req,res) => {
   User.findById(req.body.userId, (err,foundUser) => {
+    console.log(req.body.name);
     Food.create(req.body, (err,recepie) => {
       foundUser.recepies.push(recepie);
       foundUser.save((err,data) => {
@@ -136,19 +138,6 @@ food.post('/',isAuthinticated, (req,res) => {
     })
   })
 })
-
-
-
-
-// =====
-// Create
-// =====
-
-// food.post('/',isAuthinticated, (req,res) => {
-//       Food.create(req.body, (err,recepie) => {
-//         res.redirect('/foods')
-//       })
-// })
 
 
 

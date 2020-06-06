@@ -19,8 +19,12 @@
       <br>
       Number of recepies: <%=user.recepies.length%>
       <div class="user-recepies">
-       <img src="<%=user.recepies[0].img%>" alt=""> 
+        <% for (let i = 0; i < user.recepies.length; i++){ %>
+       <img src="<%=user.recepies[i].img%>">
+       <%}%>
+
       </div>
+
 
       <section>
     <form action="/users/<%=user._id%>?_method=DELETE" method="post">

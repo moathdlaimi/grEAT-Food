@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const user = express.Router();
 const User = require('../models/user.js');
+const Food = require('../models/food.js');
 
 
 
@@ -25,8 +26,18 @@ const isAuthinticated = (req,res,next) => {
 // ROUTES
 // ===================
 user.delete('/:id',isAuthinticated,(req,res) => {
-  User.findByIdAndRemove(req.params.id, () => {
-    res.redirect('/users')
+  User.findByIdAndRemove(req.params.id, (err,foundUser) => {
+    const recepiesIds = []
+    for (var i = 0; i < foundUser.recepies.length; i++) {
+        recepiesIds.push(foundUser.recepies[i]._id)
+    }
+    Food.remove(
+      {
+        _id: { $in: recepiesIds}
+      },
+      (err,data) => {
+        res.redirect('/users')
+      })
   })
 })
 
