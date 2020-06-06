@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="/css/user_new.css">
   <%- include ('../partials/head.ejs')%>
+
   <body>
 
     <div class="container">
-      <h1>Create New User</h1>
-        <form action="/users" method="post">
-          <label for="name">User Name</label>
-          <input id="name" type="text" name="username" required>
-          <label for="password">Password</label>
-          <input id="password" type="password" name="password" required>
-          <br>
+      <div class="top">
+        <h1>Create New User</h1>
+        <a href="/"> <h2>Go Back</h2> </a>
+
+      </div>
+
+        <form class="signup-form" action="/users" method="post">
+          <fieldset>
+            <label for="name">User Name</label>
+            <br>
+            <input id="name" type="text" name="username" required>
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input id="password" type="password" name="password" required>
+          </fieldset>
+
+
           <input type="submit" value="Register">
 
         </form>
