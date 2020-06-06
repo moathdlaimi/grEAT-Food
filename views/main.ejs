@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
+<link rel="stylesheet" href="css/main.css">
 <%- include ('./partials/head.ejs') %>
 
   <body>
 
     <div class="container">
-      <a href="/"><h1>grEAT food</h1></a>
-      <a href="/foods">index.ejs</a>
-      <% if(currentUser){%>
-        <form class="" action="/sessions/?_method=DELETE" method="post">
-          <input type="submit" value="Log Out">
+      <nav class="navbar">
+        <a id="logo" href="/"><h1>gr<span class="logo-span">EAT</span> food</h1></a>
+        <a id="index-link" href="/foods"><span class="recipe-span"><h1>Recipes</h1></span></a>
+      </nav>
 
-        </form>
+      <% if(currentUser){%>
+
 
       <% } else {%>
-
         <div class="login-container">
-
           <form class="" action="/sessions" method="post">
             <input type="text" name="username" placeholder="username" required>
             <br>
@@ -26,13 +24,11 @@
             <input type="submit" value="Log In">
 
           </form>
-
               <div class="signup-container">
                 Not a Member Yet? <a href="users/new">
-                  <button type="button" name="button">Sign up now!</button>
+                <button type="button" name="button">Sign up now!</button>
                 </a>
               </div>
-
         </div>
 
         <%}%>
