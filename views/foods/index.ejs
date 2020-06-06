@@ -2,17 +2,20 @@
 <html lang="en" dir="ltr">
 
  <%- include ('../partials/head.ejs') %>
+ <link rel="stylesheet" href="/css/foods_index.css">
 
   <body>
-        <%- include ('../partials/nav.ejs') %>
-          <h1>INDEX.EJS</h1>
+    <div class="main">
 
-              <a href="users/">users</a>
+    <nav class="recipe-feed-nav">
+      <%- include ('../partials/nav.ejs') %>
+        <h1>Recipes Feed</h1>
+        <a href="users/">users</a>
+    </nav>
 
             <div class="food-recipes">
       <% for(let i = 0; i < food.length; i++){ %>
           <div class="recipe-info">
-
             <a href="/foods/<%= food[i].id %> ">
               <img src="<%= food[i].img %>" alt=""> <br>
               <%= food[i].name %>
@@ -21,6 +24,6 @@
         <% } %>
 
     </div>
-
+    </div>
   </body>
 </html>
