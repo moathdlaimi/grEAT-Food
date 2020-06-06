@@ -18,9 +18,13 @@
       User Name: <%=user.username%>
       <br>
       Number of recepies: <%=user.recepies.length%>
+      <br>
+
+      <br>
       <div class="user-recepies">
         <% for (let i = 0; i < user.recepies.length; i++){ %>
        <img src="<%=user.recepies[i].img%>">
+       Name of recepies: <%=user.recepies[i].name%>
        <%}%>
 
       </div>

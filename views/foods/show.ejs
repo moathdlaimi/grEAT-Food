@@ -6,6 +6,8 @@
   <body>
 
         <%- include ('../partials/nav.ejs') %>
+        <a href="/foods">Index</a>
+        <a href="/users">Users</a>
 
       <h1>SHOW.EJS</h1>
 
@@ -14,7 +16,7 @@
 
                 <img src="<%= food.img %>" alt=""> <br>
                 <%= food.name %> <br>
-                <%= food.ingredients %> <br> <br>
+                <%= food.ingredients %> <br>
                 <%= food.cuisine %> <br>
                 <%= food.instructions %> <br>
                 <%= food.notes %> <br>

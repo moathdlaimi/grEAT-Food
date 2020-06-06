@@ -4,13 +4,11 @@
 <%- include ('./partials/head.ejs') %>
 
   <body>
-    <div class="container">
-      <h1>MAIN PAGE</h1>
 
+    <div class="container">
+      <a href="/"><h1>grEAT food</h1></a>
       <a href="/foods">index.ejs</a>
       <% if(currentUser){%>
-
-        Welcome <%= currentUser.username %>
         <form class="" action="/sessions/?_method=DELETE" method="post">
           <input type="submit" value="Log Out">
 

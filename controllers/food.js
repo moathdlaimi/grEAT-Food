@@ -84,10 +84,14 @@ food.get('/:id/edit', isAuthinticated, (req,res) => {
 // =====
 
 food.delete('/:id',isAuthinticated, (req,res) => {
-  Food.findByIdAndRemove(
-    req.params.id, (err,data) => {
-      res.redirect('/foods')
+  Food.findByIdAndRemove(req.params.id, (err,foundRecepie) => {
+    User.findOne({'recepies._id':req.params.id}, (err,foundUser)=>{
+      foundUser.recepies.id(req.params.id).remove();
+      foundUser.save((err,data) => {
+        res.redirect('/foods')
+      })
     })
+  })
 })
 
 // =====
@@ -117,11 +121,17 @@ food.put('/:id',isAuthinticated, (req,res) => {
     req.params.id,
     req.body,
     {new:true},
-    (err,updatedModel) => {
-      res.redirect('/foods')
-    }
-  )
-})
+    (err,updatedRecepie) => {
+      User.findOne({'recepies._id':req.params.id}, (err,foundUser) =>{
+          foundUser.recepies.id(req.params.id).remove()
+          foundUser.recepies.push(updatedRecepie)
+          foundUser.save((err,data) => {
+            res.redirect('/foods/'+req.params.id)
+          })
+        })
+      })
+    })
+
 // =====
 // Create inside user
 // =====
