@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="" dir="ltr">
+<link rel="stylesheet" href="/css/sessions_new.css">
 <%- include ('../partials/head.ejs')%>
   <body>
 
   <div class="container">
-  <h1>Log In</h1>
-    <form action="/sessions" method="post">
+    <div class="top">
+      <h1>Log In</h1>
+      <a href="/"> <h2>Go Back</h2> </a>
+    </div>
+
+    <form class="login-form" action="/sessions" method="post">
+      <fieldset>
+
       <label for="name">User Name</label>
       <input id="name" type="text" name="username" required>
       <label for="password">Password</label>
       <input id="password" type="password" name="password" required>
-      <br>
+      <br
+      </fieldset>
       <input type="submit" value="Log In">
 
     </form>

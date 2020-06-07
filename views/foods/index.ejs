@@ -13,26 +13,43 @@
  </script>
 
   <body>
-    <div class="main">
+    <div class="test">
 
-    <nav class="recipe-feed-nav">
-      <div class="inner-nav">
+
+    <div class="main">
+      <div id="top-nav">
         <%- include ('../partials/nav.ejs') %>
         <h1>Recipes Feed</h1>
-        <a href="users/">users</a>
-        </div>
+        <a href="users/"><h2>Users</h2></a>
+      </div>
+      <br>
+
+    <nav class="recipe-feed-nav" value="y">
+       <!-- backgrounds here -->
+      <div class="inner-nav"></div>
     </nav>
 
+
+      <!-- Content -->
             <div class="food-recipes">
       <% for(let i = 0; i < food.length; i++){ %>
+
           <div class="recipe-info">
             <a href="/foods/<%= food[i].id %> ">
-              <img src="<%= food[i].img %>" alt=""> <br>
-              <%= food[i].name %>
+              <img class="image" src="<%= food[i].img %>" alt=""> <br>
+
+              <div class="middle">
+                <div class="text">
+                  <%= food[i].name %>
+                </div>
+
+              </div>
+
             </a>
           </div>
         <% } %>
 
+    </div>
     </div>
     </div>
   </body>
