@@ -29,7 +29,7 @@ food.get('/seed', (req,res) => {
     [
       {
         name:'Apple',
-        img:'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/111435/210da11ba6d6494f81f01b97f3bbc2c4_large.png&width=256&type=webp&quality=40',
+        img:'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1528345924881876227/156a7cc68fc5a537269c91d7d77df5fc_large.png&width=256&type=webp&quality=40',
         ingredients:'core and shell',
         cuisine: 'Natural',
         instructions:'Bite it',
