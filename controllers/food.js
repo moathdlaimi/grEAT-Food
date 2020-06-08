@@ -21,31 +21,6 @@ const isAuthinticated = (req,res,next) => {
 // ===================
 // ROUTES
 // ===================
-// =====
-// SEED DATA
-// =====
-food.get('/seed', (req,res) => {
-  Food.create(
-    [
-      {
-        name:'Apple',
-        img:'https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1528345924881876227/156a7cc68fc5a537269c91d7d77df5fc_large.png&width=256&type=webp&quality=40',
-        ingredients:'core and shell',
-        cuisine: 'Natural',
-        instructions:'Bite it',
-        notes: 'Enjoy it',
-        diet:'Fruit'
-
-      }
-    ],
-    (err,data) => {
-      res.redirect('/foods')
-    }
-  )
-})
-
-// ======================
-// ======================
 
 // =====
 // new.ejs

@@ -2,30 +2,10 @@
   margin: 0;
   font-family: 'Balsamiq Sans', cursive;
 }
-a {
-  text-decoration: none;
-}
+
 .main{
   width: 95%;
   margin: 10px auto;
-}
-
-#top-nav{
-  margin: 0 auto;
-  display: flex;
-  width: inherit;
-  justify-content: space-between;
-  background-color: white;
-
-}
-
-#top-nav h1 {
-
-}
-
-.sticky{
-  position: fixed;
-  top: 0;
 }
 
 .recipe-feed-nav{
@@ -36,7 +16,7 @@ a {
   height: 400px;
   position: relative;
   overflow: hidden;
-  background-image: url('imgs/arrayimg6.jpg');
+  background-image: url('imgs/arrayimg2.jpg');
   background-position:center;
   background-size:cover;
   border-radius: 5px;

@@ -3,14 +3,8 @@
 <%- include ('../partials/head.ejs') %>
 <link rel="stylesheet" href="/css/profile.css">
   <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
 
-      <div class="inner-nav">
-        <a href="/foods">HOME</a>
-        <a href="/users">Community</a>
-      </div>
-    </nav>
+      <%- include ('../partials/nav.ejs') %>
 
     <div class="profile">
       <div class="profile-pic">
@@ -30,9 +24,8 @@
 
       <% if(currentUser){ %>
         <a href="/foods/new">Create new recepie</a>
-
         <form action="/users/<%=user._id%>?_method=DELETE" method="post">
-            <input type="submit" value="Delete user"/>
+            <input type="submit" value="Delete Account"/>
         </form>
         <%}%>
       </div>

@@ -2,15 +2,15 @@
 <html lang="en" dir="ltr">
 <%- include ('../partials/head.ejs') %>
   <body>
-    <div class="banner">
-      <a href="/"><h1>grEAT Food</h1></a>
-        <form class="" action="/sessions/?_method=DELETE" method="post">
-          <input type="submit" value="Log Out">
-        </form>
 
-    </div>
+    <%- include ('../partials/nav.ejs') %>
 
-    <h1>create new recepie</h1>
+
+    <div class="container">
+      <div class="top">
+        <h1>create new recepie</h1>
+        <a href="/"> <h2>Go Back</h2> </a>
+      </div>
 
     <form class="" action="/foods" method="post">
 
@@ -35,9 +35,7 @@
       <input type="submit" value="Create Recepie">
 
     </form>
+  </div>
 
-
-
-
-  </body>
+</body>
 </html>

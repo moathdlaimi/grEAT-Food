@@ -1,19 +1,25 @@
 
+<%- include ('../partials/head.ejs') %>
 
-
-
-<nav class="banner">
-    <a href="/foods"><h1>grEAT food</h1></a>
+<nav class="nav-banner">
     <% if(currentUser){ %>
-      Welcome <%= currentUser.username %>
-      <form class="" action="/sessions/?_method=DELETE" method="post">
-        <input type="submit" value="Log Out">
+      <a class="nav-a" href="/foods"><h1>gr<span id="eat">EAT</span> food</h1></a>
+      <div>
+        <a class="nav-a" href="/users/"><h2>Users</h2></a>
+        Welcome <%= currentUser.username %>
+        <form class="" action="/sessions/?_method=DELETE" method="post">
+          <input type="submit" value="Log Out">
+        </form>
+      </div>
 
-      </form>
       <% } else { %>
+        <a class="nav-a" href="/foods"><h1>gr<span id="eat">EAT</span> food</h1></a>
+
         <div class="">
-          <a href="../sessions/new">Log In</a> |
-          <a href="users/new">Sign Up</a>
+          <a class="nav-a" href="../sessions/new">Log In</a> |
+          <a class="nav-a" href="../users/new">Sign Up</a>
+          <br>
+          <a class="nav-a" href="/users/"><h2>Users</h2></a>
         </div>
 
       <% } %>

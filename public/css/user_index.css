@@ -1,9 +1,6 @@
 *{
   font-family: 'Balsamiq Sans', cursive;
-}
-nav{
-  display: flex;
-  justify-content: flex-end;
+  margin:0;
 }
 
 .users-list{
