@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
  <%- include ('../partials/head.ejs') %>
+ <link rel="stylesheet" href="/css/user_index.css">
   <body>
-    <%- include ('../partials/nav.ejs') %>
-        <a href="/foods">Main Page</a> <br>
-
-          <h1> User Index.ejs</h1>
-
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+          <a href="/foods">Main Page</a> <br>
+    </nav>
 
             <div class="users-list">
 
           <% for(let i = 0; i < user.length; i++){ %>
+            <div class="">
+            <div class="profile-pic">
+              </div>
             <a href="/users/<%= user[i].id %>"> <%= user[i].username %> </a>
-            <br>
+            </div>
           <% } %>
 
     </div>

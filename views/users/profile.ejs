@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+<%- include ('../partials/head.ejs') %>
+<link rel="stylesheet" href="/css/profile.css">
   <body>
-<%- include ('../partials/nav.ejs') %>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
 
-    <a href="/foods">Main Page</a> <br>
-    <a href="/users">Users</a> <br>
+      <div class="inner-nav">
+        <a href="/foods">HOME</a>
+        <a href="/users">Community</a>
+      </div>
+    </nav>
 
-    <h1>Profile</h1> <br>
-
-
-    <div class="">
-
-      User Name: <%=user.username%>
-      <br>
-      Number of recepies: <%=user.recepies.length%>
-      <br>
-
-      <br>
-      <div class="user-recepies">
-        <% for (let i = 0; i < user.recepies.length; i++){ %>
-       <img src="<%=user.recepies[i].img%>">
-       Name of recepies: <%=user.recepies[i].name%>
-       <%}%>
+    <div class="profile">
+      <div class="profile-pic">
 
       </div>
 
+      <div class="profile-info">
 
-      <section>
-    <form action="/users/<%=user._id%>?_method=DELETE" method="post">
-        <input type="submit" value="Delete user"/>
-    </form>
-</section>
+      User Name: <%=user.username%>
+      <br>
+      Number of recepies: <%=user.recipes.length%>
+      <br>
+      Cooking skill level: Professional
+      <br>
+      Location: San Francisco
+      <br>
+
+      <% if(currentUser){ %>
+        <a href="/foods/new">Create new recepie</a>
+
+        <form action="/users/<%=user._id%>?_method=DELETE" method="post">
+            <input type="submit" value="Delete user"/>
+        </form>
+        <%}%>
+      </div>
+      </div>
 
 
-    </div>
 
+      <h2 id="name"> <%=user.username%> Recipes</h2>
+
+      <div class="user-recepies">
+        <% for (let i = 0; i < user.recipes.length; i++){ %>
+
+          <div class="single-recipe">
+
+            <a href="/foods/<%= user.recipes[i].id %> ">
+            <img class="image" src="<%=user.recipes[i].img%>">
+
+           <%=user.recipes[i].name%>
+          </a>
+            </div>
+
+
+            <%}%>
+
+
+      </div>
 
   </body>
 </html>

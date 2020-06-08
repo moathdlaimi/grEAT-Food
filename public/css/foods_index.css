@@ -1,5 +1,6 @@
 *{
   margin: 0;
+  font-family: 'Balsamiq Sans', cursive;
 }
 a {
   text-decoration: none;
@@ -12,10 +13,13 @@ a {
 #top-nav{
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   width: inherit;
-  margin-bottom: 25px;
+  justify-content: space-between;
   background-color: white;
+
+}
+
+#top-nav h1 {
 
 }
 

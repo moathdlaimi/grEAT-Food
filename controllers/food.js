@@ -83,16 +83,29 @@ food.get('/:id/edit', isAuthinticated, (req,res) => {
 // Delete
 // =====
 
+// food.delete('/:id',isAuthinticated, (req,res) => {
+//   Food.findByIdAndRemove(req.params.id, (err,foundRecepie) => {
+//     console.log(foundRecepie)
+//     User.findOne(req.session.currentUser, (err,foundUser)=>{
+//       console.log(foundUser)
+//       console.log(req.session.currentUser)
+//       res.redirect('/foods')
+//     })
+//   })
+// })
+
 food.delete('/:id',isAuthinticated, (req,res) => {
-  Food.findByIdAndRemove(req.params.id, (err,foundRecepie) => {
-    User.findOne({'recepies._id':req.params.id}, (err,foundUser)=>{
-      foundUser.recepies.id(req.params.id).remove();
-      foundUser.save((err,data) => {
-        res.redirect('/foods')
+  Food.findByIdAndRemove(
+    req.params.id,(err,deletedRecipie) => {
+      User.findOne({'recipes._id':req.params.id}, (err,foundUser) =>{
+          foundUser.recipes.id(req.params.id).remove()
+          foundUser.recipes.remove(deletedRecipie)
+          foundUser.save((err,data) => {
+            res.redirect('/foods/')
+          })
+        })
       })
     })
-  })
-})
 
 // =====
 // show.ejs
@@ -122,9 +135,9 @@ food.put('/:id',isAuthinticated, (req,res) => {
     req.body,
     {new:true},
     (err,updatedRecepie) => {
-      User.findOne({'recepies._id':req.params.id}, (err,foundUser) =>{
-          foundUser.recepies.id(req.params.id).remove()
-          foundUser.recepies.push(updatedRecepie)
+      User.findOne({'recipes._id':req.params.id}, (err,foundUser) =>{
+          foundUser.recipes.id(req.params.id).remove()
+          foundUser.recipes.push(updatedRecepie)
           foundUser.save((err,data) => {
             res.redirect('/foods/'+req.params.id)
           })
@@ -139,8 +152,9 @@ food.put('/:id',isAuthinticated, (req,res) => {
 food.post('/',isAuthinticated, (req,res) => {
   User.findById(req.body.userId, (err,foundUser) => {
     console.log(req.body.name);
-    Food.create(req.body, (err,recepie) => {
-      foundUser.recepies.push(recepie);
+    Food.create(req.body, (err,recipe) => {
+      console.log('XX');
+      foundUser.recipes.push(recipe);
       foundUser.save((err,data) => {
         res.redirect('/foods')
       })

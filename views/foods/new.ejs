@@ -9,16 +9,13 @@
         </form>
 
     </div>
+
     <h1>create new recepie</h1>
 
     <form class="" action="/foods" method="post">
 
-  <select name="userId">
-    <% for(let i = 0; i < user.length; i++) { %>
-        <option value="<%=user[i]._id%>"><%=user[i].username%></option>
-    <% } %>
-  </select><br/>
-
+      <input type="hidden" name="userId" value="<%=currentUser._id%>">
+      <br>
       <input type="text" name="name" placeholder="Recepie Name" required>
       <br>
       <input type="text" name="img" placeholder="IMG URL" required>

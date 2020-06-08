@@ -6,13 +6,15 @@
     <a href="/foods"><h1>grEAT food</h1></a>
     <% if(currentUser){ %>
       Welcome <%= currentUser.username %>
-
-      <a href="/foods/new">Create new recepie</a>
       <form class="" action="/sessions/?_method=DELETE" method="post">
         <input type="submit" value="Log Out">
 
       </form>
       <% } else { %>
-          <a href="sessions/new">Log In</a>
+        <div class="">
+          <a href="../sessions/new">Log In</a> |
+          <a href="users/new">Sign Up</a>
+        </div>
+
       <% } %>
 </nav>

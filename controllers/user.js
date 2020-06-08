@@ -28,8 +28,8 @@ const isAuthinticated = (req,res,next) => {
 user.delete('/:id',isAuthinticated,(req,res) => {
   User.findByIdAndRemove(req.params.id, (err,foundUser) => {
     const recepiesIds = []
-    for (var i = 0; i < foundUser.recepies.length; i++) {
-        recepiesIds.push(foundUser.recepies[i]._id)
+    for (var i = 0; i < foundUser.recipes.length; i++) {
+        recepiesIds.push(foundUser.recipes[i]._id)
     }
     Food.remove(
       {
