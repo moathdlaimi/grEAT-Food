@@ -4,13 +4,15 @@
 .nav-banner{
   border: 1px solid black;
   width: 99%;
+  height: 50px;
   background-color: black;
   color: white;
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
-  padding: 15px 10px;
-
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid green;
 }
 
 #eat{
@@ -29,4 +31,5 @@
   position: fixed;
   top: 0;
   width: 100%;
+
 }
