@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<link rel="stylesheet" href="/css/foods_show.css">
-  <%- include ('../partials/head.ejs') %>
-  <body>
 
-<% if(currentUser){
-  let array = []
-for(let i of currentUser.recipes){
-array.push(i._id)
-}
- if(array.includes(food.id)){%>
+
+
+<% if(currentUser && (currentUser._id == user._id)){%>
+
    <div class="user-btns">
          <a href="/foods/<%=food.id%>/edit">
            <button id="edit-btn" type="button" name="button">EDIT</button>
@@ -20,11 +13,7 @@ array.push(i._id)
          </form>
    </div>
 
-<%}%>
-
 
 <% } else { %>
   <a href="/users/"><button type="button" name="button">See other Users</button> </a>
   <% } %>
-</body>
-</html>

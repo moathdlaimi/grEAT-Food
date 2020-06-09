@@ -88,7 +88,8 @@ food.delete('/:id',isAuthinticated, (req,res) => {
 
 food.get('/:id', (req,res) => {
     Food.findById(req.params.id, (err,data) => {
-      User.findOne({'recepies._id':req.params.id}, (err,foundUser) =>{
+      User.findOne({'recipes._id':req.params.id}, (err,foundUser) =>{
+
         res.render(
           'foods/show.ejs',
             {
