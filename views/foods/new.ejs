@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" href="/css/new_recipe.css">
 <%- include ('../partials/head.ejs') %>
   <body>
 
@@ -12,7 +13,7 @@
         <a href="/"> <h2>Go Back</h2> </a>
       </div>
 
-    <form class="" action="/foods" method="post">
+    <form class="new-recipe" action="/foods" method="post">
 
       <input type="hidden" name="userId" value="<%=currentUser._id%>">
       <br>
@@ -25,12 +26,18 @@
       <br>
       <input type="text" name="cuisine" placeholder="cuisine" required>
       <br>
-      <textarea type="text" name="instructions" required>Instructions
+      <textarea type="text" name="instructions" required>Instructions:
         </textarea>
         <br>
       <input type="text" name="notes" placeholder="notes">
       <br>
-      <input type="text" name="diet" placeholder="diet" required>
+      <select name="diet">
+        <option value="none">None</option>
+        <option value="halal">Halal</option>
+        <option value="vegan">Vegan</option>
+        <option value="vegetarian ">Vegetarian </option>
+      </select>
+
       <br>
       <input type="submit" value="Create Recepie">
 
