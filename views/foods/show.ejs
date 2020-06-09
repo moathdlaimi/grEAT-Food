@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
+<link rel="stylesheet" href="/css/foods_show.css">
   <%- include ('../partials/head.ejs') %>
-  <link rel="stylesheet" href="/css/foods_show.css">
-
   <body>
 
       <%- include ('../partials/nav.ejs') %>
-      <h1>SHOW.EJS</h1>
 
-          <div class="food-recipes">
-              <div class="recipe-info">
+        <div class="food-recipes">
 
-                <img src="<%= food.img %>" alt=""> <br>
-                <%= food.name %> <br>
-                <%= food.ingredients %> <br>
-                <%= food.cuisine %> <br>
-                <%= food.instructions %> <br>
-                <%= food.notes %> <br>
-                <%= food.diet %> <br>
+          <div class="recipe-info">
+                <img src="<%= food.img %>" alt="">
+                <%- include ('../partials/edit.ejs') %>
               </div>
 
-              <%- include ('../partials/edit.ejs') %>
+              <div class="info">
+                <h1>Recipe's Name:</h1> <h3><%= food.name %></h3> <br>
+                <h1>Ingredients:</h1> <h3><%= food.ingredients %></h3> <br>
+                <h1>Cuisine:</h1> <h3><%= food.cuisine %> </h3><br>
+                <h1>Instructions:<h3></h1> <%= food.instructions %></h3> <br>
+                <h1>Notes:</h1> <h3><%= food.notes %> </h3><br>
+                <h1>Diet:</h1> <h3><%= food.diet %></h3> <br>
 
-
+              </div>
 
           </div>
   </body>

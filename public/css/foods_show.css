@@ -2,3 +2,71 @@
   margin: 0;
   font-family: 'Balsamiq Sans', cursive;
 }
+
+.user-btns {
+  display: flex;
+}
+
+#edit-btn{
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid black;
+}
+#delete-btn{
+  background-color: #f72f2f;
+  color: black;
+  font-size: 16px;
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px;
+}
+#edit-btn:hover{
+  background-color:#73f564;
+}
+
+#fav-btn{
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px;
+  border: 1px solid black;
+}
+
+.food-recipes{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 100px auto 0 auto;
+}
+
+.recipe-info{
+width: 30%;
+margin: 20px;
+
+}
+
+.info{
+width: 60%;
+margin-right: 50px;
+}
+
+
+img{
+  width: 100%;
+  height: 90%;
+}

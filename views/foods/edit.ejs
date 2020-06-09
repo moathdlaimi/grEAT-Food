@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+<link rel="stylesheet" href="/css/foods_edit.css">
+<%- include ('../partials/head.ejs') %>
   <body>
-    <h1>Edit page</h1>
 
-    <form class="" action="/foods/<%=food.id%>?_method=PUT" method="post">
+    <%- include ('../partials/nav.ejs') %>
+
+
+    <div class="container">
+      <div class="top">
+        <h1>Edit your recipe</h1>
+        <a href="/"> <h2>Go Back</h2> </a>
+      </div>
+
+    <form class="edit-form" action="/foods/<%=food.id%>?_method=PUT" method="post">
 
       <input type="text" name="name" value="<%=food.name%>" required>
       <br>
@@ -23,7 +29,12 @@
         <br>
       <input type="text" name="notes" value="<%=food.notes%>">
       <br>
-      <input type="text" name="diet" value="<%=food.diet%>" required>
+      <select name="diet">
+        <option value="none">None</option>
+        <option value="halal">Halal</option>
+        <option value="vegan">Vegan</option>
+        <option value="vegetarian ">Vegetarian </option>
+      </select>
       <br>
       <input type="submit" value="Update Recipe">
 

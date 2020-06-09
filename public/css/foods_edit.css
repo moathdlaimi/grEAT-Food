@@ -1,0 +1,72 @@
+
+*{
+  margin: 0;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+body{
+  text-align:center;
+}
+
+.top{
+  padding-top: 25px;
+}
+.container{
+  background-image: url('imgs/edit.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 75%;
+  padding-bottom: 200px;
+  margin: 50px auto;
+  border-radius: 5px;
+
+}
+
+
+.edit-form{
+  margin: 25% auto;
+  padding: 30px 10px;
+  background-color: white;
+  width: 60%;
+  height: 70%;
+  opacity: 75%;
+  border-radius: 5px;
+  border: 1px solid black;
+
+}
+
+.edit-form label {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+.edit-form input{
+  font-size: 20px;
+  width: 50%;
+  padding: 20px;
+  margin: 5px auto;
+  opacity: 70%;
+}
+
+.edit-form textarea {
+  font-size: 20px;
+  width: 50%;
+  padding: 20px;
+  margin: 5px auto;
+  opacity: 70%;
+}
+
+input[value="Update Recipe"] {
+background-color: black;
+color: white;
+margin: 25px auto;
+padding: 10px;
+opacity: 100%;
+}
+
+select {
+  width: 30%;
+  padding: 20px;
+  margin: 5px auto;
+}
