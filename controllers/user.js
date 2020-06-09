@@ -26,6 +26,7 @@ const isAuthinticated = (req,res,next) => {
 // ROUTES
 // ===================
 user.delete('/:id',isAuthinticated,(req,res) => {
+  req.session.destroy() 
   User.findByIdAndRemove(req.params.id, (err,foundUser) => {
     const recepiesIds = []
     for (var i = 0; i < foundUser.recipes.length; i++) {

@@ -3,21 +3,27 @@
 
 <nav class="nav-banner">
     <% if(currentUser){ %>
-
+      <div>
         <a class="nav-a" href="/foods"><h1>gr<span id="eat">EAT</span> food</h1></a>
         <a class="nav-a" href="/users/">Users</a>
+        </div>
         <a class="nav-a" href="/foods/new">Create new recepie</a>
+
+        <div>
+
         Welcome <%= currentUser.username %>
         <form class="" action="/sessions/?_method=DELETE" method="post">
           <input type="submit" value="Log Out">
         </form>
-
+      </div>
 
       <% } else { %>
         <a class="nav-a" href="/foods"><h1>gr<span id="eat">EAT</span> food</h1></a>
-        <a class="nav-a" href="../sessions/new">Log In</a>
+        <span>
+        <a class="nav-a" href="/users/">Users</a> |
+        <a class="nav-a" href="../sessions/new">Log In</a> |
         <a class="nav-a" href="../users/new">Sign Up</a>
-        <a class="nav-a" href="/users/">Users</a>
+      </span>
 
 
       <% } %>

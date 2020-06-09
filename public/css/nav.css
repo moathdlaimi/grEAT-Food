@@ -3,7 +3,7 @@
 }
 .nav-banner{
   border: 1px solid black;
-  width: 99%;
+  width: 98%;
   height: 50px;
   background-color: black;
   color: white;
@@ -13,6 +13,7 @@
   font-size: 20px;
   padding: 10px;
   border: 1px solid green;
+  z-index:1;
 }
 
 #eat{
@@ -30,6 +31,5 @@
 .sticky{
   position: fixed;
   top: 0;
-  width: 100%;
-
+  width:98%;
 }

@@ -99,7 +99,22 @@ food.get('/:id', (req,res) => {
           })
         })
       })
+      // =====
+      // Add to fav
+      // =====
 
+      food.put('/:id/like',isAuthinticated, (req,res) => {
+        Food.findById(
+          req.params.id,
+          (err,addedrecipe) => {
+            User.findOne({'recipes._id':req.params.id}, (err,foundUser) =>{
+                foundUser.favs.push(addedrecipe)
+                foundUser.save((err,data) => {
+                  res.redirect('/foods/'+req.params.id)
+                })
+              })
+            })
+          })
 // =====
 // Update
 // =====
