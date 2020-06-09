@@ -4,17 +4,24 @@
   <%- include ('../partials/head.ejs') %>
   <body>
 
-<% if(currentUser){ %>
+<% if(currentUser){
+  let array = []
+for(let i of currentUser.recipes){
+array.push(i._id)
+}
+ if(array.includes(food.id)){%>
+   <div class="user-btns">
+         <a href="/foods/<%=food.id%>/edit">
+           <button id="edit-btn" type="button" name="button">EDIT</button>
+         </a>
 
-<div class="user-btns">
-      <a href="/foods/<%=food.id%>/edit">
-        <button id="edit-btn" type="button" name="button">EDIT</button>
-      </a>
+         <form  action="/foods/<%=food.id%>?_method=DELETE" method="post">
+           <input id="delete-btn" type="submit" value="DELETE">
+         </form>
+   </div>
 
-      <form  action="/foods/<%=food.id%>?_method=DELETE" method="post">
-        <input id="delete-btn" type="submit" value="DELETE">
-      </form>
-</div>
+<%}%>
+
 
 <% } else { %>
   <a href="/sessions/new">

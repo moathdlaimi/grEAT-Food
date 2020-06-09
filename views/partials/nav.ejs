@@ -4,6 +4,7 @@
 <nav class="nav-banner">
     <% if(currentUser){ %>
       <a class="nav-a" href="/foods"><h1>gr<span id="eat">EAT</span> food</h1></a>
+      <a class="nav-a" href="/foods/new">Create new recepie</a>
       <div>
         <a class="nav-a" href="/users/"><h2>Users</h2></a>
         Welcome <%= currentUser.username %>
