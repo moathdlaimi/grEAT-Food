@@ -1,6 +1,8 @@
 # grEAT-food
 
-grEAT food is a place where you can sign up & sign in , create/edit recipes and share them with the other users cross the platform
+grEAT food is a place where you can sign up & sign in , create/edit recipes and share them with the other users cross the platform.
+
+In other words, I want to make a facebook of food!
 
 ### Technologies used
 - HTML5
