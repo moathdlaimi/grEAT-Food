@@ -2,31 +2,37 @@
   margin: 0;
 }
 .nav-banner{
-  border: 1px solid black;
   width: 98%;
-  height: 50px;
-  background-color: black;
+  background-color: white;
   color: white;
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
   font-size: 20px;
   padding: 10px;
-  border: 1px solid green;
+
   z-index:1;
 }
 
 #eat{
   color: green;
 }
-
-
+#eat:hover{
+  color: black;
+}
 
 .nav-a {
   text-decoration: none;
-  color: white;
+  color: black;
+
+}
+.nav-a:hover{
+  color: green;
 }
 
+.active{
+  color:red;
+}
 
 .sticky{
   position: fixed;
