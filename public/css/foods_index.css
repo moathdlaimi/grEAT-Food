@@ -45,7 +45,7 @@
 
 
 .recipe-info{
-  margin: 25px auto;
+  margin: 20px auto;
   position: relative;
   border-radius: 5px;
   width: 275px;
@@ -60,6 +60,7 @@
   height: 100%;
   transition: .5s ease;
   backface-visibility: hidden;
+  border-radius: 5px;
 }
 
 .middle {
@@ -84,3 +85,11 @@
   color: black;
   font-size: 30px;
 }
+
+footer {
+  text-align: center;
+  }
+  .footer{
+    text-decoration: none;
+    color: black;
+  }

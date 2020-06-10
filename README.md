@@ -8,6 +8,7 @@ In other words, I want to make a facebook of food!
 - HTML5
 - CSS3
 - Javascript
+- jQuery
 - Express.js
 - Express sessions
 - Node.js
