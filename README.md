@@ -18,10 +18,10 @@ grEAT food is a place where you can sign up & sign in , create/edit recipes and 
 
 ## Future Updates
 
--Filter recipes by diet & other filters
--Adding favorite recipe list
--Users reviews
--Social activities
+- Filter recipes by diet & other filters
+- Adding favorite recipe list
+- Users reviews
+- Social activities
 
 
 
