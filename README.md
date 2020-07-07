@@ -29,5 +29,7 @@ In other words, I want to make a facebook of food!
 - Social activities
 
 
+## Screenshots
 
+![wireframe2](https://i.imgur.com/bkxuZgq.png)
 
