@@ -31,5 +31,6 @@ In other words, I want to make a facebook of food!
 
 ## Screenshots
 
-![wireframe2](https://i.imgur.com/bkxuZgq.png)
+![](https://github.com/moathdlaimi/grEAT-Food/blob/master/public/css/imgs/Screen%20Shot%202020-07-07%20at%201.44.41%20PM.png)
+![](https://github.com/moathdlaimi/grEAT-Food/blob/master/public/css/imgs/Screen%20Shot%202020-07-07%20at%201.44.59%20PM.png)
 
